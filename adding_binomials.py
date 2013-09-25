@@ -1,13 +1,14 @@
 """
 Adding binomial numbers
+
+Coded by: Marcus Willock :)
 """
 
 
 """
-code from binomial_number_conversion
-"""
-"""
-The code from my orginal attempt to add binomials
+code from binomial_number_conversion.
+
+The code from my orginal attempt to add binomials.
 """
 def same_length(num1, num2): #works
     
@@ -65,7 +66,7 @@ def create_list(number): #works
 Back to the new code
 """
 
-def adding_binomials(numbers, current_total = "0"):
+def adding_binomials(numbers):
     """
     Needs to take a list of binomials numbers in the form of a string and add 
     them.
@@ -134,13 +135,8 @@ def formatting_user_input(user):
     """
     
     for index in range(len(user)):
-        """
-        Converting the number from string to integer and then back to
-        string will get rid of the leading space.
-        """
-        tempt = int(user[index])
-        tempt = str(tempt)
-        user[index] = tempt
+        while user[index][0] == " ":
+            user[index] = user[index][1:]
     
     #print user
     return user
@@ -158,5 +154,11 @@ def main():
     user = formatting_user_input(user)
     results = adding_binomials(user)
 
+    #Taking the extra zeros off of the answer
+    while results[-1] == "0":
+        results = results[:-2]
+
     print "\nThe answer is:", results, "\n"
 
+if __name__ == "__main__":
+    main()

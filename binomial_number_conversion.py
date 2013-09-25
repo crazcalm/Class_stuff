@@ -139,7 +139,7 @@ def create_list(number): #works
 Back to the new code
 """
 
-def adding_binomials(numbers, current_total = "0"):
+def adding_binomials(numbers):
     """
     Needs to take a list of binomials numbers in the form of a string and add 
     them.
@@ -217,16 +217,16 @@ def main_binomial_conversion():
     
     answer = adding_binomials(binary_form_of_divisors)
     
-    print "\nFirst answer: ",answer
-    
     answer = str(answer)
     
+    # Getting rid of the extra ending zeros
     while answer[-1]=="0":
         answer = answer[:-1]
         
-    print "\nSecond answer: ",answer
-    
-main_binomial_conversion()
+    print "\nAnswer: ",answer, "\n"
+
+if __name__ == "__main__":    
+    main_binomial_conversion()
         
                
         

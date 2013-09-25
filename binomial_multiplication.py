@@ -1,5 +1,7 @@
 """
 Binomial multiplication
+
+Coded by: Marcus Willock :)
 """
 from adding_binomials import adding_binomials
 
@@ -13,7 +15,6 @@ def multiplication(numbers):
     ouput: list of strings
     """
 
-    results = "Where is the answer?"
     if len(numbers) == 1: 
         """
         When there is only one item left in the list, that item should be the
@@ -25,9 +26,11 @@ def multiplication(numbers):
         
         num1 = numbers[0]
         num2 = numbers[1]
+
+        print "num1 and num2 are: \n\n", num1, "\n", num2
         
         #logic for converting from multiplication to adding
-        adding_list = []
+        adding_list = [] # Holds the numbers that will be added together
 
         for index in range(len(num2)):
             if num2[index] == "0":
@@ -37,10 +40,11 @@ def multiplication(numbers):
                 
                 # figuring out how many zeros I need.
                 tempt = "0" * index
+                print "tempt is: ", tempt, "\nindex is: ", index
                 # adding number to list
                 adding_list.append(tempt + num1)
             
-            #print "test: adding list",adding_list 
+        print "test: adding list",adding_list 
         # the answer for num1 * num2
         answer = adding_binomials(adding_list)
 
@@ -64,13 +68,8 @@ def formatting_user_input(user):
     """
     
     for index in range(len(user)):
-        """
-        Converting the number from string to integer and then back to
-        string will get rid of the leading space.
-        """
-        tempt = int(user[index])
-        tempt = str(tempt)
-        user[index] = tempt
+        while user[index][0] == " ":
+            user[index] = user[index][1:]
     
     #print user
     return user
@@ -99,5 +98,5 @@ def main():
 
     print "\nThe answer is: ",answer, "\n"
     
-
-main()
+if __name__ == "__main__":
+    main()
